@@ -8,6 +8,8 @@ const btn_virtual = document.querySelector(".btn_virtual");
 
 const forca= new Adedonha();
 
-campo_pergunta.textConten=
+
+
+
 
 
