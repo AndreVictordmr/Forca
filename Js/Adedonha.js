@@ -22,9 +22,7 @@ export class Adedonha {
         const sorteio = Math.floor(Math.random() * questoes.length);
         this.perguntas.push(questoes[sorteio]);
       }
-    } else {
-      this.mensagem = "Erro no jogo";
-    }
+    } else throw new Error("Erro no jogo")
   }
 
   pegandoResposta(index) {
@@ -58,7 +56,7 @@ export class Adedonha {
       this.mensagem = "Parabéns, você ganhou!";
 		return this.mensagem;
     }
-    
+    return null;
   }
 
   checkResposta() {
