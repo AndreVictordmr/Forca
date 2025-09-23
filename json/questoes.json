@@ -1,5 +1,6 @@
 {
-  perquntas:[
-   {"perqunta":"Qual é a capital do Brasil","resposta":"Brasilia"}, 
+  "perguntas":[
+   {"pergunta":"Qual é a capital do Brasil","resposta":"Brasilia"}, 
   ]
 }
+
