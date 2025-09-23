@@ -16,12 +16,15 @@ export class Adedonha {
     this.quest = numb;
     this.play_quest = numb;
     this.perguntas = [];
-
+	let ja_foi = new Set();
     if (questoes.length >= numb) {
-      for (let i = 0; i < numb; i++) {
-        const sorteio = Math.floor(Math.random() * questoes.length);
-        this.perguntas.push(questoes[sorteio]);
-      }
+      while(this.perguntas.length < numb){
+        let sorteio = Math.floor(Math.random() * questoes.length);
+		if(!ja_foi.has(sorteio){
+      	  	this.perguntas.push(questoes[sorteio]);
+			ja_foi.push(sorteio);		
+		}
+	  }
     } else throw new Error("Erro no jogo")
   }
 
