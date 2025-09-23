@@ -22,7 +22,7 @@ export class Adedonha {
         let sorteio = Math.floor(Math.random() * questoes.length);
 		if(!ja_foi.has(sorteio){
       	  	this.perguntas.push(questoes[sorteio]);
-			ja_foi.push(sorteio);		
+			ja_foi.add(sorteio);		
 		}
 	  }
     } else throw new Error("Erro no jogo")
