@@ -53,10 +53,12 @@ export class Adedonha {
   gameOver() {
     if (this.vida <= 0) {
       this.mensagem = "Fim de jogo";
+		return this.mensagem;
     } else if (this.play_quest <= 0) {
       this.mensagem = "Parabéns, você ganhou!";
+		return this.mensagem;
     }
-    return this.mensagem;
+    
   }
 
   checkResposta() {
