@@ -1,6 +1,16 @@
 {
   "perguntas":[
-   {"pergunta":"Qual é a capital do Brasil","resposta":"Brasilia"}, 
+    {"pergunta":"Qual é a capital do Brasil","resposta":"Brasilia"},
+    {"pergunta": "Qual é a capital da França?","resposta": "Paris"},
+    {"pergunta": "Qual é o maior planeta do sistema solar?","resposta": "Júpiter"},
+    {"pergunta": "Quem pintou a Mona Lisa?","resposta": "Leonardo da Vinci"},
+    {"pergunta": "Qual é o elemento químico representado pelo símbolo O?","resposta": "Oxigênio"},
+    {"pergunta": "Qual é o rio mais longo do mundo?","resposta": "Amazonas"},
+    {"pergunta": "Quem escreveu 'Dom Quixote'?","resposta": "Miguel de Cervantes"},
+    {"pergunta": "Qual é o animal símbolo da Austrália?","resposta": "Canguru"},
+    {"pergunta": "Qual continente é conhecido como “continente negro”?","resposta": "África"},
+    {"pergunta": "Qual o nome do Gear 5 do Luffy?","respota":"Nika"}
   ]
 }
+
 
