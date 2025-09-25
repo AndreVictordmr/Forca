@@ -9,7 +9,7 @@ const btn_virtual = document.querySelector(".btn_virtual");
 const forca= new Adedonha();
 const questoes= Questoes; 
 
-forca.pegandoPergunta(4,questoes);
+forca.starGame(4,questoes);
 
 
 
