@@ -66,11 +66,11 @@ export class Adedonha {
 			this.isWin = true;
 			
 	    }
-	    return {fim:!this.isPlay, vitoria:this.isWin};
+	    return {fim:this.isPlay, vitoria:this.isWin};
 	}
 	starGame(num,questoes){
 		this.pegandoPergunta(num,questoes);
-		this.pegandoResposta(this.play_quest);
+		this.pegandoResposta(0);
 	}
 	
 	 checkResposta() {
