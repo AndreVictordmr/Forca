@@ -7,7 +7,7 @@ let campo_resposta=document.getElementById("resposta");
 const btn_virtual = document.querySelector(".btn_virtual");
 
 const forca= new Adedonha();
-const questoes= Questoes; 
+const questoes= Questoes["perguntas"]; 
 
 forca.starGame(4,questoes);
 
