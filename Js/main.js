@@ -11,7 +11,14 @@ const questoes= Questoes["perguntas"];
 
 forca.starGame(4,questoes);
 
+do{
+campo_pergunta.textContent =forca.perguntas[forca.play_quest].pergunta;
+
+campo_resposta.textContent = forca.check_resposta;
+
+campo_resposta.addEventListener("keyup");
+
+btn_virtual.addEventListener("click");
 
 
-
-
+}while(forca.isPlay)
