@@ -4,8 +4,8 @@ import Questoes from "./json/questoes.json" with { type:"json"}
 let campo_pergunta=document.getElementById("pergunta");
 let campo_resposta=document.getElementById("resposta");
 
-const btn_virtual = document.querySelector(".btn_virtual");
-const btn_num = document.querySelector(".btn_num");
+const btn_virtual = document.querySelectorAll(".btn_virtual");
+const btn_num = document.querySelectorAll(".btn_num");
 const aviso = document.querySelector("#aviso");
 
 const forca= new Adedonha();
@@ -29,7 +29,7 @@ function atualizarTela(){
       mensagem_pont.textContent = forca.ponto;
       aviso.showModal();
   }else{
-      mensagem_titulo.textContent = `Voce chego ate a ${forca.play_quest+1} rodada`;
+      mensagem_titulo.textContent = `Voce chego ate a ${forca.play_quest+1}ª rodada`;
       mensagem_pont.textContent = forca.ponto;
       aviso.showModal();
   }
@@ -37,16 +37,24 @@ function atualizarTela(){
 
 campo_resposta.addEventListener("keyup",(event)=>{verificacao(event.key)});
 
-btn_virtual.addEventListener("click",()=>{verificacao(btn_virtual.textContent.trim())});
+btn_virtual.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const letra = btn.textContent.trim().toLowerCase();
+    verificacao(btn.textContent.trim())
+    if(forca.erro.includes(letra)||forca.check_resposta.includes(letra)){
+      btn.classList.add("btn_usado");
+      btn.disabled = true;
+    }
+  })
+});
 
 
 
 
 function verificacao(letra){
   if(/^[a-z]$/i.test(letra)){ 
-    if(!forca.erro.includes(letra.toLowerCase())){
+    if(!forca.erro.includes(letra.toLowerCase())&&!forca.check_resposta.includes(letra.toLowerCase())){
           forca.verificandoResposta(letra);
-      
       }
   }  
   atualizarTela();
