@@ -4,19 +4,47 @@ import Questoes from "./json/questoes.json" with { type:"json"}
 let campo_pergunta=document.getElementById("pergunta");
 let campo_resposta=document.getElementById("resposta");
 
-const btn_virtual = document.querySelectorAll(".btn_virtual");
+const teclado = document.querySelector("#teclado");
+
+
 const btn_num = document.querySelectorAll(".btn_num");
 const aviso = document.querySelector("#aviso");
 
 const forca= new Adedonha();
 const questoes= Questoes["perguntas"]; 
 
-btn_num.addEventListener("click", function(){
-  let numb = parseInt(btn_num.textContent);
-  forca.starGame(numb,questoes);
-  atualizarTela();
+//Criando os botoes
+for(let i =65; i <=90;i++){
+  const letras = String.fromCharCode(i);
+  const btn = document.createElement("button");
+  btn.textContent = letras;
+  btn.classList.add("btn_virtual");
+  
+  btn.addEventListener("click",()=>{
+      const letra = btn.textContent.trim().toLowerCase();
+    verificacao(btn.textContent.trim())
+    if(forca.erro.includes(letra)||forca.check_resposta.includes(letra)){
+      btn.classList.add("btn_usado");
+      btn.disabled = true;
+    }
+  })
+
+ 
+  
+  teclado.appendChild(btn);
+}
+
+
+//Pegando o numeros de rodas do jogo 
+btn_num.forEach(btn=>{
+    btn.addEventListener("click", function(){
+    let numb = parseInt(btn.textContent.trim());
+    forca.starGame(numb,questoes);
+    atualizarTela();
+  })
 });
 
+//atulizando a tela
 function atualizarTela(){
   const mensagem_titulo = aviso.querySelector("h2");
   const mensagem_pont   = aviso.querySelector("p");
@@ -35,22 +63,10 @@ function atualizarTela(){
   }
 }
 
+//Adicionado eventos tando de teclado quando de um teclado virtual
 campo_resposta.addEventListener("keyup",(event)=>{verificacao(event.key)});
 
-btn_virtual.forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      const letra = btn.textContent.trim().toLowerCase();
-    verificacao(btn.textContent.trim())
-    if(forca.erro.includes(letra)||forca.check_resposta.includes(letra)){
-      btn.classList.add("btn_usado");
-      btn.disabled = true;
-    }
-  })
-});
-
-
-
-
+//Verificando se tem a entrada de um letra valida
 function verificacao(letra){
   if(/^[a-z]$/i.test(letra)){ 
     if(!forca.erro.includes(letra.toLowerCase())&&!forca.check_resposta.includes(letra.toLowerCase())){
