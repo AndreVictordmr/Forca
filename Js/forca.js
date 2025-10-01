@@ -44,7 +44,7 @@ atualizarTela();
 function atualizarTela(){
   if(forca.isPlay){
     campo_pergunta.textContent =forca.perguntas[forca.play_quest].pergunta.toUpperCase();
-    campo_resposta.textContent = forca.check_resposta;
+    campo_resposta.textContent = forca.check_resposta.join('').toUpperCase();
   }else if(forca.isWin){
       mensagem_titulo.textContent = "Parabem você ganhou";
       mensagem_pont.textContent = forca.ponto;
@@ -57,7 +57,7 @@ function atualizarTela(){
 }
 
 //Adicionado eventos tando de teclado quando de um teclado virtual
-campo_resposta.addEventListener("keyup",(event)=>{verificacao(event.key)});
+document.addEventListener("keyup",(event)=>{verificacao(event.key)});
 
 //Verificando se tem a entrada de um letra valida
 function verificacao(letra){
