@@ -3,7 +3,7 @@ import Questoes from "./json/questoes.json" with { type:"json"}
 
 let campo_pergunta=document.getElementById("pergunta");
 let campo_resposta=document.getElementById("resposta");
-
+let numb
 const teclado = document.querySelector("#teclado");
 
 console.log(btn_num.textContent);
@@ -37,13 +37,13 @@ for(let i =65; i <=90;i++){
 
 
 //Pegando o numeros de rodas do jogo 
-btn_num.forEach(btn=>{
-    btn.addEventListener("click", function(){
-    let numb = parseInt(btn.textContent.trim());
+
+    btn_num.addEventListener("click", function(){
+      numb = parseInt(btn.textContent.trim());
+ 
+    });
     forca.starGame(numb,questoes);
     atualizarTela();
-  })
-});
 
 //atulizando a tela
 function atualizarTela(){
