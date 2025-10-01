@@ -18,6 +18,7 @@ for(let i =65; i <=90;i++){
   const letras = String.fromCharCode(i);
   const btn = document.createElement("button");
   btn.textContent = letras;
+  console.log(letras);
   btn.classList.add("btn_virtual");
   
   btn.addEventListener("click",()=>{
