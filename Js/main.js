@@ -6,7 +6,7 @@ let campo_resposta=document.getElementById("resposta");
 
 const teclado = document.querySelector("#teclado");
 
-
+console.log(btn_num.textContent);
 const btn_num = document.querySelectorAll(".btn_num");
 const aviso = document.querySelector("#aviso");
 
