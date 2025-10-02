@@ -4,6 +4,7 @@ export class Adedonha {
 	    this.play_quest = 0; // número de rodadas 
 	    this.perguntas = [];
 	    this.isPlay = true;
+		this.onGame = true;
 		this.isWin = false;
 	    this.resposta = "";
 	    this.erro = [];
@@ -28,9 +29,10 @@ export class Adedonha {
 	  }
 	
 	  pegandoResposta(index) {
-	    this.resposta = this.perguntas[index].resposta;
-	    this.check_resposta = Array(this.resposta.length).fill(" ");
-	    this.erro = [];
+	    this.resposta = this.perguntas[index].resposta.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+	    this.check_resposta = this.resposta.split("").map(char=>{ return char === " "?" ": " _ ";});
+		console.log(this.resposta);
+		this.erro = [];
 	  }
 				 
 	  verificandoResposta(letra) {
@@ -72,15 +74,21 @@ export class Adedonha {
 		this.pegandoPergunta(num,questoes);
 		console.log(num);
 		this.pegandoResposta(0);
+		
 	}
 	
-	 checkResposta() {
-	    if (this.resposta.toLowerCase() === this.check_resposta.join("").toLowerCase()) {
+	checkResposta() {
+		let respotaLimpa = this.resposta.toLowerCase().replace(/\s+/g,"");
+		let checkLimpo = this.check_resposta.join("").replace(/\s+/g,"");
+	    if (respotaLimpa === checkLimpo) {
 			this.play_quest++;
-	      if (this.isPlay && this.play_quest < this.quest) {
-	        this.pegandoResposta(this.play_quest);
-	      }
+			this.onGame = false;
+			
+	      	if (this.isPlay && this.play_quest < this.quest) {
+	        	this.pegandoResposta(this.play_quest);
+				
+	      	}
 	    }
-	    this.gameOver();
-	  }
+	this.gameOver();
 	}
+}

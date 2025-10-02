@@ -1,1 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --cor_primaria: ;
+    --cor_segundaria: ;
+}
+body{background-color: beige;}
+
+#tela{
+    width: 50%;
+    height: 100vh;
+    background-color: antiquewhite;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr;
+    place-self: center center;
+    gap: 10px;
+}
+#tela div{
+    text-align: center;
+    font-family: "Bagel Fat One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+
+    color: rgb(102, 0, 0);
+    place-self: center center;
+}
+
+.btn_num{
+    width: 50%;
+    height: 30%;
+    background-color: #333;
+    place-self: center center;
+    border: 1px solid;
+    border-radius: 20px;
+    color: white;
+}
+.btn_num:hover{
+    background-color: #444;
+}
