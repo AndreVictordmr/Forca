@@ -80,7 +80,7 @@ export class Adedonha {
 	checkResposta() {
 		let respotaLimpa = this.resposta.toLowerCase().replace(/\s+/g,"");
 		let checkLimpo = this.check_resposta.join("").replace(/\s+/g,"");
-	    if (respotaLimpa === checkLimpo) {
+		if (respotaLimpa === checkLimpo) {
 			this.play_quest++;
 			this.onGame = false;
 			

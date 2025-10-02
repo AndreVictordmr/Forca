@@ -3,6 +3,7 @@ import Questoes from "../json/questoes.json" with { type:"json"}
 
 let campo_pergunta=document.getElementById("pergunta");
 let campo_resposta=document.getElementById("resposta");
+let campo_erro = document.getElementById("erros");
 
 const teclado = document.querySelector("#teclado");
 
@@ -46,18 +47,29 @@ function atualizarTela(){
   if(forca.isPlay){
     campo_pergunta.textContent =forca.perguntas[forca.play_quest].pergunta.toUpperCase();
     campo_resposta.textContent = forca.check_resposta.join('').toUpperCase();
+    campo_erro.textContent = forca.erro.join("-").toUpperCase();
     if(!forca.onGame){
-    tecladoReset();  
-    forca.onGame=true;
+    setTimeout(()=>{
+      tecladoReset();
+      forca.onGame=true;
+      atualizarTela();
+    }, 1500);  
+    
   }
   }else if(forca.isWin){
+    setTimeout(()=>{ 
       mensagem_titulo.textContent = "Parabem você ganhou";
       mensagem_pont.textContent = forca.ponto;
       aviso.showModal();
+    },1500);
+
   }else{
+    setTimeout(()=>{ 
       mensagem_titulo.textContent = `Voce chego ate a ${forca.play_quest+1}ª rodada`;
       mensagem_pont.textContent = forca.ponto;
       aviso.showModal();
+    },1500)
+
   }
 }
 
